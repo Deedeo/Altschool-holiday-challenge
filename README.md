@@ -1,7 +1,10 @@
 # ALTSCHOOL HOLIDAY CHALLENGE
 
  **Creating a VPC with Private EC2 Instances and a  Application Load Balancer using the AWS Management Console.**
- 
+
+
+
+
 ### IMPORTANT INSTRUCTIONS
 * Set up 2 EC2 instances on AWS(use the free tier instances).
 * Deploy an Nginx web server on these instances(you are free to use Ansible)
@@ -12,23 +15,38 @@
 * Access must be only via the load balancer
 * You must submit a custom domain name(from a domain provider e.g. Route53)   or the ALB’s domain name.
 
+
 ##  GETTING STARTED
+
 
 ### PREQUITISTES
 * An AWS account
   - Access to the AWS Management Console with the necessary permisions.
+
   
 
 ### GOAL
 * ````This illustrates how an Application Load Balancer attached to EC2 instance running in a private subnet can be configured to be accessed from the internet the help of a aws service called Nat gateway.````
+
+
+
+
 
 ### Architecture Diagram
   ![Architecture Diagram](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/alt.drawio.png)
 
 
 
+
+
 #### Overview
 - In order to achieve the goal of this holiday challenge, the following steps are required.
+
+
+
+
+
+
 
 #### STEP 1: CREATE VPC
    > On the VPC configuration Dashboard choosing VPC and more automatically launches Private Subnets, Public Subnets, Route Tables, Internet GateWay, Elastic IP, Availability Zones within your current region and the necessary configuration are done.
@@ -46,6 +64,10 @@
 
  
 
+
+
+
+
 #### STEP 2 CREATE A SECURITY GROUP FOR PRIVATE INSTANCES AND APPLICATION LOAD BALANCER
 ##### step 2a:  create Load balancer security group in the new VPC network
         - Allow all traffic on port 80 from 0.0.0.0/0. 
@@ -56,8 +78,11 @@
         - Allow SSH on port 22 from my IP address.
         - Allow All Traffic from load balancer security group.
 
-![SecurityGroup2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/images/naya-sg.jpg)
+![SecurityGroup2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/naya-sg.jpg)
   
+
+
+
 
 #### STEP 3: LAUNCH TWO PRIVATE EC2 INSTANCES WITH A USERDATA
          - Create ec2 instance using amazon linux 2.
@@ -80,6 +105,9 @@
          - Select the private instances and register them with target group.
          - click Create target group.
 ![TG](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/tg-naya.jpg)
+
+
+
 
 
 
@@ -106,6 +134,8 @@
 ![ALB-DNS](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/hello2.jpg)
 
 resources ![aws docs](https://docs.aws.amazon.com/)
+
+
 #### STEP 6: CREATE A HOSTED ZONE ON ROUTE 53
      - create hosted zone
      - create a record to map the application load balancer to your domian name.
