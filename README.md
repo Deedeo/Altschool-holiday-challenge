@@ -23,7 +23,7 @@
 * ````This illustrates how an Application Load Balancer attached to EC2 instance running in a private subnet can be configured to be accessed from the internet the help of a aws service called Nat gateway.````
 
 ### Architecture Diagram
-  ![](file:///C:\Users\Daramola%20Adeola\Downloads\alt.drawio.png)
+  ![Architecture Diagram](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/alt.drawio.png)
 
 
 
@@ -40,7 +40,7 @@
     * Internet Gateway.
     * Nat Gateway.
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\nayaG.jpg)
+![VPC](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/nayaG.jpg)
 
 ****please note that Elastic-IP will be allocated to Nat-gateway     automatimacally****
 
@@ -51,12 +51,12 @@
         - Allow all traffic on port 80 from 0.0.0.0/0. 
         - Allow all traffic on port 443 from 0.0.0.0/0.
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\lg-sg.jpg)
+![SecurityGroup1](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/lg-sg.jpg)
 ##### step 2b: create private ec2 security group in the new VPC network
         - Allow SSH on port 22 from my IP address.
         - Allow All Traffic from load balancer security group.
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\naya-sg.jpg)
+![SecurityGroup2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/images/naya-sg.jpg)
   
 
 #### STEP 3: LAUNCH TWO PRIVATE EC2 INSTANCES WITH A USERDATA
@@ -68,18 +68,18 @@
          - Pre-configure instances with a bash script that install nginx and echo an index file into the Nginx config.
          - Launch the instances
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\network-naya.jpg)
+![EC2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/network-naya.jpg)
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\server-naya2.jpg)
+![EC2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/server-naya2.jpg)
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\naya-userdata.jpg)
+![EC2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/naya-userdata.jpg)
 
 #### STEP 4: CREATE A TARGET GROUP
          - Give Target group a name.
          - Select instances as the target.
          - Select the private instances and register them with target group.
          - click Create target group.
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\tg-naya.jpg)
+![TG](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/tg-naya.jpg)
 
 
 
@@ -94,21 +94,21 @@
          - Attach target group.
          - create Application Load Balancer.
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\lb-naya.jpg)
+![ALB](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/lb-naya.jpg)
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\healthy-naya.jpg)
+![ALB](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/healthy-naya.jpg)
 
 > Using the Application Load Balancer DNS you can confirm the status of your server.
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\hello1.jpg)
+![ALB-DNS](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/hello1.jpg)
  > Then after a refresh the load balancer send traffic to the second server 
 
-![](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\hello2.jpg)
+![ALB-DNS](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/hello2.jpg)
 
 resources ![aws docs](https://docs.aws.amazon.com/)
 #### STEP 6: CREATE A HOSTED ZONE ON ROUTE 53
      - create hosted zone
      - create a record to map the application load balancer to your domian name.
-![domain1](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\dns1.jpg)
+![domain1](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/dns1.jpg)
 
-![domain2](file:///C:\Users\Daramola%20Adeola\Altschool-holiday-challenge\images\dns2.jpg)
+![domain2](https://github.com/Deedeo/Altschool-holiday-challenge/blob/master/images/dns2.jpg)
